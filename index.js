@@ -197,6 +197,7 @@ function fastifyView (fastify, opts, next) {
 
     data = Object.assign({}, defaultCtx, data)
     data.pageName = page
+    data.contentFor = contentFor
     // append view extension
     page = getPage(page, type)
 
@@ -395,6 +396,10 @@ function fastifyView (fastify, opts, next) {
 
   const contentPattern = '&&<>&&'
 
+  function contentFor(contentName) {
+    return contentPattern + contentName + contentPattern;
+  }
+  
   function parseContents (locals) {
     let name; let i = 1; const str = locals.body
     const regex = new RegExp('\n?' + contentPattern + '.+?' + contentPattern + '\n?', 'g')
