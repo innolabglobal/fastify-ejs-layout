@@ -1,0 +1,64 @@
+{
+  "name": "fastify-ejs-layout",
+  "version": "0.0.1",
+  "description": "EJS Layout Template plugin for Fastify",
+  "main": "index.js",
+  "scripts": {
+    "example": "node example.js",
+    "example-with-options": "node example-ejs-with-some-options.js",
+    "test-with-snapshot": "standard && cross-env TAP_SNAPSHOT=1 tap test/test-ejs-with-snapshot.js",
+    "test-bak": "standard && tap -J test/* && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/innolabglobal/fastify-ejs-layout.git"
+  },
+  "keywords": [
+    "fastify",
+    "template",
+    "view",
+    "speed",
+    "ejs",
+    "marko",
+    "nunjucks",
+    "pug",
+    "handlebars",
+    "mustache"
+  ],
+  "author": "JY Liu - @ljieyao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/innolabglobal/fastify-ejs-layout/issues"
+  },
+  "homepage": "https://github.com/innolabglobal/fastify-ejs-layout#readme",
+  "dependencies": {
+    "fastify-plugin": "^1.5.0",
+    "hashlru": "^2.3.0"
+  },
+  "devDependencies": {
+    "art-template": "^4.13.2",
+    "cross-env": "^5.2.0",
+    "ejs": "^2.6.1",
+    "ejs-mate": "^2.3.0",
+    "express": "^4.16.4",
+    "fastify": "^2.0.0",
+    "handlebars": "^4.1.0",
+    "html-minifier": "^4.0.0",
+    "html-minify-stream": "^1.0.0",
+    "marko": "^4.14.25",
+    "mustache": "^3.0.1",
+    "nunjucks": "^3.1.7",
+    "pre-commit": "^1.2.2",
+    "pug": "^2.0.3",
+    "simple-get": "^3.0.3",
+    "standard": "^12.0.1",
+    "tap": "^12.5.2",
+    "typescript": "^3.3.3",
+    "@types/node": "^11.11.3"
+  },
+  "standard": {
+    "ignore": [
+      "*.marko.js"
+    ]
+  }
+}
