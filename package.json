@@ -1,5 +1,5 @@
 {
-  "name": "fastify-ejs-layout",
+  "name": "fastify-layout",
   "version": "0.0.1",
   "description": "EJS Layout Template plugin for Fastify",
   "main": "index.js",
