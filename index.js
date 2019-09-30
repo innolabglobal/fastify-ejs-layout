@@ -181,7 +181,7 @@ function fastifyView (fastify, opts, next) {
         }
       }
 
-      if (type === 'ejs') {
+      if (data.hasLayout) {
         readFile(join(templatesDir, 'layout.ejs'), 'utf8', mycallback(this, page, data))
       } else {
         that.send(cachedPage)
