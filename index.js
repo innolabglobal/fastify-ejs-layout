@@ -166,7 +166,7 @@ function fastifyView (fastify, opts, next) {
         cachedPage = options.useHtmlMinifier.minify(cachedPage, options.htmlMinifierOptions || {})
       }
 
-      const mycallback = function () {
+      const mycallback = function (that, page, data) {
         return function _mycallback (err, html) {
           if (err) {
             that.send(err)
@@ -174,7 +174,7 @@ function fastifyView (fastify, opts, next) {
           }
           options.filename = join(templatesDir, 'layout.ejs')
           const compiledLayoutPage = engine.compile(html, options)
-          const layoutData = parseContents({ body: cachedPage })
+          const layoutData = Object.assign({}, data, parseContents({ body: cachedPage }))
           compiledLayoutPage(layoutData)
 
           that.send(compiledLayoutPage(layoutData))
@@ -182,7 +182,7 @@ function fastifyView (fastify, opts, next) {
       }
 
       if (data.hasLayout) {
-        readFile(join(templatesDir, 'layout.ejs'), 'utf8', mycallback(this, page, data))
+        readFile(join(templatesDir, 'layout.ejs'), 'utf8', mycallback(that, page, data))
       } else {
         that.send(cachedPage)
       }
